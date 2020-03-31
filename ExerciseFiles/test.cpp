@@ -26,6 +26,15 @@ void disp(std::unique_ptr<myStrC> & o)
 }
 
 
+// Function to demonstarte that you cannot pass a unique pointer
+// to a function without referencing it
+void f(unique_ptr<myStrC> & p)
+{
+    message("f()");
+    disp(p);
+}
+
+
 int main(int argc, char ** argv)
 {
     message("create unique pointer one");
@@ -53,6 +62,9 @@ int main(int argc, char ** argv)
     disp(a);
     disp(b);
     disp(c);
+
+    // Unique pointer can only be pass by reference in function
+    f(c);
 
     message("end of scope");
     return 0;

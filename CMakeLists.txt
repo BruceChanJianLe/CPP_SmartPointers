@@ -7,4 +7,5 @@ SET(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 SET(CMAKE_CXX_COMPILE_FEATURES ON)
 
-add_executable(test ExerciseFiles/test.cpp ExerciseFiles/my_strc.cpp)
+add_executable(uniquePointer ExerciseFiles/test.cpp ExerciseFiles/my_strc.cpp)
+add_executable(sharedPointer ExerciseFiles/test2.cpp ExerciseFiles/my_strc.cpp)
