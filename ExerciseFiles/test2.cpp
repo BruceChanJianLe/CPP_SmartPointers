@@ -12,11 +12,11 @@ void message(const string s)
 }
 
 
-void disp(std::unique_ptr<myStrC> & o)
+void disp(const std::shared_ptr<myStrC> & o)
 {
     if(o)
     {
-        cout << o->value() << endl;
+        cout << o->value() << " (" << o.use_count() << ")" << endl;
     }
     else
     {
@@ -28,31 +28,30 @@ void disp(std::unique_ptr<myStrC> & o)
 
 int main(int argc, char ** argv)
 {
-    message("create unique pointer one");
-    std::unique_ptr<myStrC> a(new myStrC("one"));
+    message("create share pointer with new");
+    std::shared_ptr<myStrC> a1(new myStrC("none"));
+    auto a = std::make_shared<myStrC>("new");
+
+    message("reset a to one");
+    a.reset(new myStrC("one"));
     disp(a);
 
-    message("make_unique two");
-    auto b = std::make_unique<myStrC>("two");
+    message("b = a");
+    auto b = a;
     disp(a);
     disp(b);
 
-    message("reset a to three");
-    a.reset(new myStrC("three"));
+    cout << "a == b " << (a == b ? "true" : "false") << endl;
+    // printf("%s", *a == *b ? "true" : "false");
+    // cout << "* a == * b " << (* a == * b ? "true" : "false") << endl;
+    cout << &a ;
+
+    message("reset a to two");
+    a.reset(new myStrC("two"));
     disp(a);
     disp(b);
 
-    message("move b to c");
-    auto c = std::move(b);
-    disp(a);
-    disp(b);
-    disp(c);
 
-    message("reset a");
-    a.reset();
-    disp(a);
-    disp(b);
-    disp(c);
 
     message("end of scope");
     return 0;
