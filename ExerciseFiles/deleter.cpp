@@ -11,7 +11,7 @@ using namespace std;
 
 void deleter(const myStrC * o)
 {
-    cout << "deleter: ";
+    cout << "func deleter: ";
     if(o)
     {
         cout << o->value() << endl;
@@ -30,7 +30,7 @@ class D
 public:
     void operator () (const myStrC * o)
     {
-        cout << "deleter: ";
+        cout << "class deleter: ";
         if(o)
         {
             cout << o->value() << endl;
@@ -73,7 +73,7 @@ int main(int argc, char ** argv)
     message("create third share pointer");
     std::shared_ptr<myStrC> c(new myStrC("thing3"), [=](const myStrC * o)
     {
-        cout << "deleter: ";
+        cout << "lambda deleter: ";
         if(o)
         {
             cout << o->value() << endl;
