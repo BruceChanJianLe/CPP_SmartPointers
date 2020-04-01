@@ -27,6 +27,7 @@ public:
     const string value() const;
     operator const string () const;
     void swap(myStrC &);
+    bool operator == (const myStrC &) const;
 };
 
 #endif

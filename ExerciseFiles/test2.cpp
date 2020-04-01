@@ -42,16 +42,30 @@ int main(int argc, char ** argv)
     disp(b);
 
     cout << "a == b " << (a == b ? "true" : "false") << endl;
-    // printf("%s", *a == *b ? "true" : "false");
-    // cout << "* a == * b " << (* a == * b ? "true" : "false") << endl;
-    cout << &a ;
+    cout << "* a == * b " << (* a == * b ? "true" : "false") << endl;
 
     message("reset a to two");
     a.reset(new myStrC("two"));
     disp(a);
     disp(b);
 
+    cout << "a == b " << (a == b ? "true" : "false") << endl;
+    cout << "* a == * b " << (* a == * b ? "true" : "false") << endl;
 
+    message("b.swap(a)");
+    b.swap(a);
+    disp(a);
+    disp(b);
+
+    message("std::swap using obj");
+    std::swap(a, b);
+    disp(a);
+    disp(b);
+
+    message("std::swap using pointer");
+    std::swap(*a, *b);
+    disp(a);
+    disp(b);
 
     message("end of scope");
     return 0;

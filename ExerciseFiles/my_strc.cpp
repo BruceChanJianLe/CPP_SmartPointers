@@ -77,3 +77,18 @@ void myStrC::swap(myStrC & o)
 {
     std::swap(this->data, o.data);
 }
+
+
+bool myStrC::operator == (const myStrC & o) const
+{
+    // cout << "funciton overload " << flush;
+    if(data == o.data)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+    
+}
