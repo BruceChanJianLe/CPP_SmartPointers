@@ -18,3 +18,6 @@ Smart pointers are in `#include <memory>` header.
 - Can delete those copies as much as I want
 - The resources will automatically and safely be destroyed when all copies of pointers are deleted or when it goes out of scope
 
+**Weak Pointer**
+- Weak pointer is used to prevent circular references
+- Weak pointer goes out of scope when its share pointers gets deleted
