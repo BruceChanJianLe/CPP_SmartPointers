@@ -43,3 +43,6 @@ For my part, I like the explicit nature of the shared pointer, rather the implic
 This is my strategy and you're welcome to use it as a starting point.  
 I strongly suggest that you spend some time working with the different types of smart pointers.  
 Then, you'll develop a strategy that works for you.
+
+## Reference
+- [Top 10 dumb mistakes to avoid with C++ 11 smart pointers](https://www.acodersjourney.com/top-10-dumb-mistakes-avoid-c-11-smart-pointers/)
